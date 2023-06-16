@@ -1,0 +1,21 @@
+1. SELECT idfab, idproducto, decripcion, precio, (precio * 1.16) AS precioIva
+FROM productos;
+
+2. SELECT numpedido, fab, producto, cant, (importe / cant) AS precioUnitario, importe
+FROM pedidos;
+
+3. SELECT nombre, (CURRENT_DATE - contrato) as diasTrabajando, (YEAR(CURRENT_DATE()) - edad) AS anoNacimiento
+FROM empleados;
+
+4. SELECT repclie AS representante, nombre AS cliente
+FROM clientes ORDER BY repclie ASC;
+
+######## Obtener la lista de los clientes agrupados por código de representante asignado, visualizar
+todas la columnas de la tabla. Aparte visualizar el nombre del representante que viene de la tabla empleados #######
+
+SELECT clientes.*, repclie.nombre
+FROM clientes
+JOIN empleados repclie ON clientes.repclie = repclie.numemp
+ORDER BY clientes.repclie;
+
+#############
